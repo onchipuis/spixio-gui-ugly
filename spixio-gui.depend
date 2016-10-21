@@ -2863,3 +2863,52 @@
 1477033631 /home/ckdur/Documentos/spixio-gui/libMPSSE_spi.h
 	"ftd2xx.h"
 
+1477033631 source:/home/ckdur/Documentos/spixio-gui-ugly/spixio-gui.c
+	"stdafx.h"
+	"spixio.h"
+	"spixio-gui.h"
+	"spixio-gtk.h"
+
+1477033631 /home/ckdur/Documentos/spixio-gui-ugly/stdafx.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<inttypes.h>
+	<gtk/gtk.h>
+	<math.h>
+	<Windows.h>
+	<WinNT.h>
+	<Shlobj.h>
+	<tchar.h>
+	<direct.h>
+	<dlfcn.h>
+
+1477071648 /home/ckdur/Documentos/spixio-gui-ugly/spixio.h
+
+1477033631 /home/ckdur/Documentos/spixio-gui-ugly/spixio-gui.h
+
+1477033631 /home/ckdur/Documentos/spixio-gui-ugly/spixio-gtk.h
+
+1477034453 source:/home/ckdur/Documentos/spixio-gui-ugly/spixio.c
+	"stdafx.h"
+	"spixio.h"
+	"WinTypes.h"
+	"ftd2xx.h"
+	"libMPSSE_spi.h"
+
+1477033631 /home/ckdur/Documentos/spixio-gui-ugly/WinTypes.h
+	<sys/time.h>
+
+1477033631 /home/ckdur/Documentos/spixio-gui-ugly/ftd2xx.h
+	<pthread.h>
+	"WinTypes.h"
+
+1477033631 /home/ckdur/Documentos/spixio-gui-ugly/libMPSSE_spi.h
+	"ftd2xx.h"
+
+1477066825 source:/home/ckdur/Documentos/spixio-gui-ugly/spixio-gtk.c
+	"stdafx.h"
+	"spixio-gtk.h"
+	"spixio-gui.h"
+	"spixio.h"
+

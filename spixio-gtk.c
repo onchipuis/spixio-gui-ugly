@@ -43,7 +43,8 @@ on_tree_outputs_value_edited (GtkCellRendererText *renderer,
         int ndig = get_ndig(GSPI_WORD, gMain->radix);
 		int nvalue = real_radix(new_text, buf2, ndig, gMain->radix, gMain->radix);
 
-		if(GSPI_DONE) write_single_word(value, GSPI_ADDR, (uint32_t)nvalue, GSPI_WORD);
+		int addr_size = FUNC_GSPI_SPI_WADDR_BITS;
+		if(GSPI_DONE) write_single_word(value, addr_size, (uint32_t)nvalue, GSPI_WORD);
 
 		gtk_list_store_set (GTK_LIST_STORE (model), &iter, 1, buf2, -1);
 	}
@@ -146,7 +147,8 @@ void update_single(void)
         char chbuf2[100];
         gtk_tree_model_get(model, &iter, 2, &value, -1);
 
-        read_single_word((uint32_t)value, GSPI_ADDR, &nvalue, GSPI_WORD);
+        int addr_size = FUNC_GSPI_SPI_RADDR_BITS;
+        read_single_word((uint32_t)value, addr_size, &nvalue, GSPI_WORD);
         sprint_radix(chbuf2, nvalue, get_ndig(GSPI_WORD, gMain->radix), gMain->radix);
 
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter,

@@ -19,11 +19,15 @@ extern char GSPI_NAME[500];
 #define FUNC_GSPI_MAXOBJ			(GSPI_OUTPUTS>GSPI_INPUTS?GSPI_OUTPUTS:GSPI_INPUTS);
 #define GSPI_SPI_DUMMY_BITS			3
 #define GSPI_SPI_TASK_BITS			2
-#define FUNC_GSPI_SPI_ADDR_BITS 	clogb2(GSPI_MAXOBJ);
+#define FUNC_GSPI_SPI_ADDR_BITS 	clogb2(GSPI_MAXOBJ)
+#define FUNC_GSPI_SPI_RADDR_BITS 	clogb2(GSPI_MAXOBJ)  // Because raddr bits in ugly version
+#define FUNC_GSPI_SPI_WADDR_BITS 	clogb2(GSPI_OUTPUTS)  // Because waddr bits in ugly version
 #define GSPI_SPI_DATA_BITS 			databits
 #define GSPI_SPI_ADDR_BITS          sizeaddr
 #define GSPI_SPI_COMM_WRITE_BITS	(GSPI_SPI_TASK_BITS+GSPI_SPI_ADDR_BITS+GSPI_SPI_DATA_BITS)
-#define GSPI_SPI_COMM_READ_BITS		(GSPI_SPI_TASK_BITS+GSPI_SPI_ADDR_BITS+GSPI_SPI_DATA_BITS+1)
+// Fix because capture is on OUTPUTS, only works properly if nbits_read = nbits_write+1
+// NOTE: if difference between OUTPUTS and INPUTS its very high, maybe this doesnt work
+#define GSPI_SPI_COMM_READ_BITS		((GSPI_SPI_TASK_BITS+GSPI_SPI_ADDR_BITS+GSPI_SPI_DATA_BITS)+(GSPI_OUTPUTS>=GSPI_INPUTS?1:0))
 #define GSPI_SPI_READ_SEND_BITS		GSPI_SPI_DATA_BITS
 #define GSPI_TASK_READ				0x1
 #define GSPI_TASK_WRITE				0x2
